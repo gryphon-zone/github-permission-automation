@@ -27,7 +27,7 @@
     <version>1.0-SNAPSHOT</version>
 
     <name>${project.artifactId}</name>
-    <description>Highly pluggable async HTTP abstraction library</description>
+    <description>Easy way to automate github permission configuration</description>
     <url>https://github.com/gryphon-zone/github-permission-automation</url>
 
     <licenses>
