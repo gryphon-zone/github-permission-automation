@@ -21,10 +21,12 @@ import com.beust.jcommander.ParameterException;
 import java.io.File;
 
 public class FileExistsValidator implements IValueValidator<File> {
+
     @Override
     public void validate(String name, File value) throws ParameterException {
         if (!value.exists()) {
             throw new ParameterException(String.format("Value for parameter \"%s\" is invalid, file \"%s\" does not exist", name, value.getAbsolutePath()));
         }
     }
+
 }

@@ -15,14 +15,18 @@
 
 package zone.gryphon.github.utilities;
 
-import com.beust.jcommander.IStringConverter;
+import com.beust.jcommander.converters.BaseConverter;
 
 import java.io.File;
 
 /**
  * @author galen
  */
-public class FileConverter implements IStringConverter<File> {
+public class FileConverter extends BaseConverter<File> {
+
+    public FileConverter(String optionName) {
+        super(optionName);
+    }
 
     @Override
     public File convert(String value) {

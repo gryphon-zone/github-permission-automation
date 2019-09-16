@@ -64,7 +64,7 @@ public class PermissionAutomationApplication {
     @Parameter(
         names = "--github",
         arity = 1,
-        description = "URL of the Github API to use"
+        description = "URL of the Github API to use. Override this for use with Enterprise Github."
     )
     private String url = "https://api.github.com";
 
@@ -73,27 +73,27 @@ public class PermissionAutomationApplication {
         arity = 1,
         description = "Username to connect with. Not required when using token authentication."
     )
-    private String user = null;
+    private String user;
 
     @Parameter(
         names = {"-p", "--password"},
         arity = 1,
         description = "" +
-            "Password to connect with\n" +
-            "Only one of password/token needs to be specified, if both are provided the token will be used.",
+            "Password to connect with. " +
+            "Only one of password/token needs to be specified. If both are provided, then the token will be used.",
         password = true
     )
-    private String password = null;
+    private String password;
 
     @Parameter(
         names = {"-t", "--token"},
         arity = 1,
         description = "" +
-            "Token to connect with\n" +
-            "Only one of password/token needs to be specified, if both are provided the token will be used.",
+            "Token to connect with. " +
+            "Only one of password/token needs to be specified. If both are provided, then the token will be used.",
         password = true
     )
-    private String token = null;
+    private String token;
 
     @Parameter(
         names = {"-f", "--file"},
@@ -101,10 +101,9 @@ public class PermissionAutomationApplication {
         validateValueWith = FileExistsValidator.class,
         arity = 1,
         description = "" +
-            "Configuration file to use.",
-        password = true
+            "YAML configuration file to use."
     )
-    private File file = new File("github.yaml");
+    private File file;
 
     @Parameter(
         names = {"-h", "--help"},
