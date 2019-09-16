@@ -219,6 +219,8 @@ public class PermissionAutomationApplication {
 
     private void process(String organization, OrganizationConfiguration configuration) throws IOException {
         for (Map.Entry<String, TeamConfiguration> tuple : configuration.getTeams().entrySet()) {
+
+            log.info("Processing team \"{}\" in organization \"{}\"", tuple.getKey(), organization);
             process(organization, tuple.getKey(), tuple.getValue());
         }
     }
@@ -306,7 +308,7 @@ public class PermissionAutomationApplication {
             String repositoryName = tuple.getKey();
             RepositoryPermission permission = tuple.getValue();
 
-            log.info("Setting access role as {} for team \"{}\" over \"{}/{}\"", String.format(width, permission), teamName, organization.getLogin(), repositoryName);
+            log.info("Granting team \"{}\" role {} over \"{}/{}\"", teamName, String.format(width, permission), organization.getLogin(), repositoryName);
             if (Objects.equals(NONE, permission)) {
                 team.remove(organization.getRepository(repositoryName));
             } else {
