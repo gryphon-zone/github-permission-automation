@@ -13,27 +13,21 @@
  * limitations under the License.
  */
 
-package zone.gryphon.github.configuration;
+package zone.gryphon.github.utilities;
 
-import lombok.Data;
-import zone.gryphon.github.model.RepositoryPermission;
+import com.beust.jcommander.IStringConverter;
 
-import javax.validation.Valid;
-import java.util.Map;
-import java.util.Set;
+import java.io.File;
 
-@Data
-public class TeamConfiguration {
+/**
+ * @author galen
+ */
+public class FileConverter implements IStringConverter<File> {
 
-    @Valid
-    private TeamMembershipConfiguration membership;
-
-    private RepositoryPermission permission;
-
-    private Set<String> repositories;
-
-    private Set<String> exclusions;
-
-    private Map<String, RepositoryPermission> overrides;
-
+    @Override
+    public File convert(String value) {
+        return new File(value);
+    }
 }
+
+

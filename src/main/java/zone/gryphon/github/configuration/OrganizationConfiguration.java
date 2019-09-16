@@ -17,11 +17,15 @@ package zone.gryphon.github.configuration;
 
 import lombok.Data;
 
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
 import java.util.Map;
 
 @Data
 public class OrganizationConfiguration {
 
+    @Valid
+    @NotNull
     private Map<String, TeamConfiguration> teams;
 
 }

@@ -13,27 +13,18 @@
  * limitations under the License.
  */
 
-package zone.gryphon.github.configuration;
+package zone.gryphon.github.utilities;
 
-import lombok.Data;
-import zone.gryphon.github.model.RepositoryPermission;
+import com.beust.jcommander.IValueValidator;
+import com.beust.jcommander.ParameterException;
 
-import javax.validation.Valid;
-import java.util.Map;
-import java.util.Set;
+import java.io.File;
 
-@Data
-public class TeamConfiguration {
-
-    @Valid
-    private TeamMembershipConfiguration membership;
-
-    private RepositoryPermission permission;
-
-    private Set<String> repositories;
-
-    private Set<String> exclusions;
-
-    private Map<String, RepositoryPermission> overrides;
-
+public class FileExistsValidator implements IValueValidator<File> {
+    @Override
+    public void validate(String name, File value) throws ParameterException {
+        if (!value.exists()) {
+            throw new ParameterException(String.format("Value for parameter \"%s\" is invalid, file \"%s\" does not exist", name, value.getAbsolutePath()));
+        }
+    }
 }

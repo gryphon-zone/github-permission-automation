@@ -13,27 +13,13 @@
  * limitations under the License.
  */
 
-package zone.gryphon.github.configuration;
+package zone.gryphon.github.utilities;
 
-import lombok.Data;
-import zone.gryphon.github.model.RepositoryPermission;
+import java.io.IOException;
 
-import javax.validation.Valid;
-import java.util.Map;
-import java.util.Set;
+@FunctionalInterface
+public interface IOFunction<T> {
 
-@Data
-public class TeamConfiguration {
-
-    @Valid
-    private TeamMembershipConfiguration membership;
-
-    private RepositoryPermission permission;
-
-    private Set<String> repositories;
-
-    private Set<String> exclusions;
-
-    private Map<String, RepositoryPermission> overrides;
+    T invoke() throws IOException;
 
 }

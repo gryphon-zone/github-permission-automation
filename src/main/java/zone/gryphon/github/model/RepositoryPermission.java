@@ -13,27 +13,28 @@
  * limitations under the License.
  */
 
-package zone.gryphon.github.configuration;
+package zone.gryphon.github.model;
 
-import lombok.Data;
-import zone.gryphon.github.model.RepositoryPermission;
+public enum RepositoryPermission {
 
-import javax.validation.Valid;
-import java.util.Map;
-import java.util.Set;
+    /**
+     * No access to the repository
+     */
+    NONE,
 
-@Data
-public class TeamConfiguration {
+    /**
+     * Read access to the repository
+     */
+    READ,
 
-    @Valid
-    private TeamMembershipConfiguration membership;
+    /**
+     * Write access to the repository
+     */
+    WRITE,
 
-    private RepositoryPermission permission;
-
-    private Set<String> repositories;
-
-    private Set<String> exclusions;
-
-    private Map<String, RepositoryPermission> overrides;
+    /**
+     * Administrative access to the repository
+     */
+    ADMIN
 
 }

@@ -16,10 +16,12 @@
 package zone.gryphon.github.configuration;
 
 import lombok.Data;
+import zone.gryphon.github.configuration.validation.DisparateMembers;
 
 import java.util.Set;
 
 @Data
+@DisparateMembers
 public class TeamMembershipConfiguration {
 
     private Set<String> members;
