@@ -19,7 +19,7 @@
     <parent>
         <groupId>zone.gryphon</groupId>
         <artifactId>base-pom</artifactId>
-        <version>0.11.41-5e4a1d7</version>
+        <version>0.20.93-c220945</version>
     </parent>
 
     <groupId>zone.gryphon.github</groupId>
